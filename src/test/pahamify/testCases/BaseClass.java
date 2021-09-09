@@ -39,7 +39,7 @@ public class BaseClass {
         driver = new AndroidDriver(new URL(config.getUrl()), desiredCapability);
 
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        System.out.println("set timeout");
+        System.out.println("Set timeout");
 
     }
 
