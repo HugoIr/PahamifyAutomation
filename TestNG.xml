@@ -4,6 +4,7 @@
 
     <test name="Pahamify Test">
         <classes>
+<!--            <class name="test.pahamify.testCases.RegisterTest" />-->
             <class name="test.pahamify.testCases.LoginTest" />
         </classes>
     </test>

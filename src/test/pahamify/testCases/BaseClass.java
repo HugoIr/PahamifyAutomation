@@ -1,18 +1,20 @@
 package test.pahamify.testCases;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import test.pahamify.utilities.ReadConfig;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -89,5 +91,32 @@ public class BaseClass {
 //        Thread.sleep(1000);
     }
 
+    public static void fillAvatarAtTheFirstTimeLoginTest() throws InterruptedException {
+
+        tapAction(driver, 371,526);
+
+        MobileElement el5 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.EditText");
+        el5.sendKeys("trishaa789");
+        MobileElement el6 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.ImageView");
+        el6.click();
+        MobileElement el7 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[7]/android.view.ViewGroup/android.widget.TextView");
+        el7.click();
+        MobileElement el8 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[11]/android.view.ViewGroup/android.widget.TextView");
+        el8.click();
+
+        MobileElement lanjutBtn = (MobileElement) driver.findElementByXPath("//android.widget.TextView[@text='Lanjut']");
+        lanjutBtn.click();
+
+        Thread.sleep(1000);
+
+        MobileElement lewati = (MobileElement) driver.findElementByXPath("//android.widget.TextView[@text='Lewati']");
+        lewati.click();
+
+        List verifikasiPopUp = driver.findElements(By.xpath("//android.widget.TextView[@text='Yuk Verifikasikan Nomor HP-mu!']"));
+        if ( !verifikasiPopUp.isEmpty()) {
+            (new TouchAction(driver)).tap(new PointOption().withCoordinates(986, 183)).perform();
+            System.out.println("Berhasil mengisi ");
+        }
+    }
 
 }
